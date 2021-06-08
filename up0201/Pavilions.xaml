@@ -1,0 +1,42 @@
+﻿<Page x:Class="up0201.Pavilions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:up0201"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Pavilions">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Name="name"/>
+            <Label Name="status" Grid.Column="1"/>
+        </Grid>
+        <DataGrid Grid.Row="1" Name="DGPavs" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер этажа" Binding="{Binding flor}"/>
+                <DataGridTextColumn Header="Номер павильона" Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Площадь" Binding="{Binding squere}"/>
+                <DataGridTextColumn Header="Статус павильона" Binding="{Binding status}"/>
+                <DataGridTextColumn Header="Коэффицент" Binding="{Binding delta}"/>
+                <DataGridTextColumn Header="Стоимость м кв." Binding="{Binding price}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Click="EditBtn"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
